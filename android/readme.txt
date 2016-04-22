@@ -36,3 +36,24 @@ To use GT for network traffic capture, please download tcpdump(download: http://
 4.根目录下的sdk目录，是GT SDK的源码及其调试的壳工程。需要将GT SDK导出jar包时，请选中src目录，及在eclipse中即时生成的gen目录中的package:com.tencent.wstt.gt及其子package导出jar即可。
 
 5.根目录下的demo目录，是合入了GT SDK的一个被测app样例工程，可以直接用eclipse导入。
+
+
+
+[依赖jar来源说明]
+1.android-support-v13.jar  sdk/extras/android/support/v13/android-support-v13.jar
+2.mid-sdk-xx.jar,mta-sdk-xx.jar,bugly_crash_release__xx.jar 到腾讯官网下载
+3.zxing-core-3.2.1.jar  http://central.maven.org/maven2/com/google/zxing/core/
+4.wlogin_sdk.jar  使用的是GT_2.2.6.2.apk 中反编译出的 jar.
+  1. 打包方法:提取 GT_2.2.6.2.apk 中的 dex 转为 jar 
+  2. jar -xf classes-dex2jar.jar
+  3. rm -rf android/ com/ mqq/
+  4. jar -cvf wlogin_sdk.jar oicq/
+  即可生成wlogin_sdk.jar
+
+res/raw/tcpdump 和 res/raw/tcpdump6 解压自GT_2.2.6.2.apk
+ 
+[gradle build]
+1.修改local.properties 为本地 sdk,ndk 目录
+2.修改build.gradle 中的签名
+
+gradle build 编译即可。
