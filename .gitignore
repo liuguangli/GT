@@ -2,6 +2,12 @@
 Thumbs.db
 ehthumbs.db
 
+# Gradle
+.gradle/
+build
+bin
+gen
+
 # Folder config file
 Desktop.ini
 
